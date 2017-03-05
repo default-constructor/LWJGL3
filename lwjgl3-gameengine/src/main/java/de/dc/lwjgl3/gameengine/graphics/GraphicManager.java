@@ -61,7 +61,7 @@ public class GraphicManager {
 		List<Vector2D> textures = new ArrayList<>();
 		List<Vector3D> normals = new ArrayList<>();
 		List<Integer> indices = new ArrayList<>();
-		BufferedReader bufferedReader = FileUtil.loadFile("res/entities/" + name + ".obj");
+		BufferedReader bufferedReader = FileUtil.loadFile("src/main/resources/entities/" + name + ".obj");
 		String line;
 		try {
 			while (true) {
@@ -223,7 +223,7 @@ public class GraphicManager {
 	 */
 
 	public TerrainData loadTerrainData(String heightMapName, float size) {
-		BufferedImage image = FileUtil.loadImage("res/textures/" + heightMapName + ".png");
+		BufferedImage image = FileUtil.loadImage("src/main/resources/textures/" + heightMapName + ".png");
 
 		int vertexCount = image.getHeight();
 		float[][] heights = new float[vertexCount][vertexCount];
@@ -298,7 +298,7 @@ public class GraphicManager {
 //		System.out.println("GraphicManager::loadTexture");
 
 		Texture texture = null;
-		try (InputStream stream = new FileInputStream("res/textures/" + name + ".png")) {
+		try (InputStream stream = new FileInputStream("src/main/resources/textures/" + name + ".png")) {
 			texture = TextureLoader.getTexture("PNG", stream);
 		} catch (IOException e) {
 			e.printStackTrace();

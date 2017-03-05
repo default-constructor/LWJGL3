@@ -15,8 +15,8 @@ public abstract class Shader {
 	public static final int VERTEX_INDEX = 0;
 	public static final int TEXTURE_COORDINATES_INDEX = 1;
 
-	protected static final String VERTEXSHADER_PATH = "res/shaders/{state}/{shadername}.vert";
-	protected static final String FRAGMENTSHADER_PATH = "res/shaders/{state}/{shadername}.frag";
+	protected static final String VERTEXSHADER_PATH = "src/main/resources/shaders/{state}/{shadername}.vert";
+	protected static final String FRAGMENTSHADER_PATH = "src/main/resources/shaders/{state}/{shadername}.frag";
 
 	protected Map<String, Integer> locationCache = new HashMap<>();
 
