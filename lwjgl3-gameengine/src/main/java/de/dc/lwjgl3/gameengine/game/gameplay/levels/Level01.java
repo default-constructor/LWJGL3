@@ -3,6 +3,8 @@ package de.dc.lwjgl3.gameengine.game.gameplay.levels;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.lwjgl.opengl.GL11;
+
 import de.dc.lwjgl3.gameengine.core.Vector3D;
 import de.dc.lwjgl3.gameengine.core.model.EntityData;
 import de.dc.lwjgl3.gameengine.core.model.ModelTexture;
@@ -71,7 +73,7 @@ public class Level01 extends Level {
 
 	@Override
 	public void update() {
-//		System.out.println("Level01::update");
+		// System.out.println("Level01::update");
 		player.move(terrain);
 		camera.move();
 	}
@@ -83,7 +85,7 @@ public class Level01 extends Level {
 	private void initEntities() {
 		EntityData data = graphicManager.loadOBJ("haus");
 		RawModel rawModel = graphicManager.loadRawModel(data.getVertices(), data.getTextureCoordinates(), data.getNormals(), data.getIndices());
-		TexturedModel entityModel = new TexturedModel(rawModel, new ModelTexture(graphicManager.loadTexture("haus")));
+		TexturedModel entityModel = new TexturedModel(rawModel, new ModelTexture(graphicManager.loadTexture("haus"), true));
 		Entity entity = new Entity(entityModel, new Vector3D(384f, 3f, -384f), 10);
 		entities.add(entity);
 	}

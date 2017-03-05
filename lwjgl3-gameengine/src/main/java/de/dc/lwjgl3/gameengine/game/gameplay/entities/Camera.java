@@ -55,10 +55,10 @@ public class Camera {
 	}
 
 	private void calculatePitch() {
-//		if (Window.input.isMouseButtonRightPressed()) {
-//			float pitchChange = Window.input.getMousePositionDeltaY() * 0.1f;
-//			pitch -= pitchChange;
-//		}
+		if (Window.input.isMouseButtonRightPressed()) {
+			float pitchChange = Window.input.getMousePositionDeltaY() * 0.1f;
+			pitch -= pitchChange;
+		}
 	}
 
 	private void calculateZoom() {

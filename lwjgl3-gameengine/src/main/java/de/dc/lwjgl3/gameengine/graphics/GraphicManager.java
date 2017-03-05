@@ -277,7 +277,7 @@ public class GraphicManager {
 		height += Terrain.MAX_PIXEL_COLOR / 2f;
 		height /= Terrain.MAX_PIXEL_COLOR / 2f;
 		height *= Terrain.MAX_HEIGHT;
-		return 0; // height;
+		return 0; // TODO height;
 	}
 
 	private Vector3D getNormal(int x, int z, BufferedImage image) {

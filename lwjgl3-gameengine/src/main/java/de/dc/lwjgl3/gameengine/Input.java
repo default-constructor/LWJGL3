@@ -191,23 +191,27 @@ public class Input {
 		return mouseScrollsDown;
 	}
 
-	public boolean isKeyBackwardPressed() {
-		return keysPressed[Keyboard.KEY_S] || keysRepeated[Keyboard.KEY_S];
-	}
+//	public boolean isKeyBackwardPressed() {
+//		return keysPressed[Keyboard.KEY_S] || keysRepeated[Keyboard.KEY_S];
+//	}
+//
+//	public boolean isKeyForwardPressed() {
+//		return keysPressed[Keyboard.KEY_W] || keysRepeated[Keyboard.KEY_W];
+//	}
+//
+//	public boolean isKeyLeftPressed() {
+//		return keysPressed[Keyboard.KEY_A] || keysRepeated[Keyboard.KEY_A];
+//	}
+//
+//	public boolean isKeyRightPressed() {
+//		return keysPressed[Keyboard.KEY_D] || keysRepeated[Keyboard.KEY_D];
+//	}
+//
+//	public boolean isKeySpacePressed() {
+//		return keysPressed[Keyboard.KEY_SPACE];
+//	}
 
-	public boolean isKeyForwardPressed() {
-		return keysPressed[Keyboard.KEY_W] || keysRepeated[Keyboard.KEY_W];
-	}
-
-	public boolean isKeyLeftPressed() {
-		return keysPressed[Keyboard.KEY_A] || keysRepeated[Keyboard.KEY_A];
-	}
-
-	public boolean isKeyRightPressed() {
-		return keysPressed[Keyboard.KEY_D] || keysRepeated[Keyboard.KEY_D];
-	}
-
-	public boolean isKeySpacePressed() {
-		return keysPressed[Keyboard.KEY_SPACE];
+	public boolean isKeyPressed(int key) {
+		return keysPressed[key] || keysRepeated[key];
 	}
 }

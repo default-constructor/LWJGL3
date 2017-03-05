@@ -71,6 +71,8 @@ public class Window {
 
 		input = new Input(id);
 		input.init();
+
+		lastFrameTime = getCurrentTime();
 	}
 
 	public static void destroy() {
@@ -108,7 +110,6 @@ public class Window {
 	public static void update() {
 		input.update();
 		long currentFrameTime = getCurrentTime();
-		System.out.println("Current frame time: " + currentFrameTime);
 		delta = (currentFrameTime - lastFrameTime) / 1000f;
 		lastFrameTime = currentFrameTime;
 	}

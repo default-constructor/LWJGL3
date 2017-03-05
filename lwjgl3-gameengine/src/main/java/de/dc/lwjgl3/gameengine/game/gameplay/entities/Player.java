@@ -1,5 +1,7 @@
 package de.dc.lwjgl3.gameengine.game.gameplay.entities;
 
+import org.lwjgl.input.Keyboard;
+
 import de.dc.lwjgl3.gameengine.Window;
 import de.dc.lwjgl3.gameengine.core.Vector3D;
 import de.dc.lwjgl3.gameengine.core.model.TexturedModel;
@@ -24,7 +26,6 @@ public class Player extends Entity {
 
 	public void move(Terrain terrain) {
 		checkInputs();
-		log();
 		super.increaseRotation(0, currentTurnSpeed * Window.getFrameTimeSeconds(), 0);
 		float distance = currentRunSpeed * Window.getFrameTimeSeconds();
 		float deltaX = (float) (distance * Math.sin(Math.toRadians(super.getRotationY())));
@@ -46,21 +47,21 @@ public class Player extends Entity {
 
 	private void checkInputs() {
 		// System.out.println("Is key space pressed? " + Window.input.isKeySpacePressed());
-		if (Window.input.isKeyForwardPressed()) {
+		if (Window.input.isKeyPressed(Keyboard.KEY_W)) {
 			currentRunSpeed = RUN_SPEED;
-		} else if (Window.input.isKeyBackwardPressed()) {
+		} else if (Window.input.isKeyPressed(Keyboard.KEY_S)) {
 			currentRunSpeed = -RUN_SPEED;
 		} else {
 			currentRunSpeed = 0;
 		}
-		if (Window.input.isKeyRightPressed()) {
+		if (Window.input.isKeyPressed(Keyboard.KEY_D)) {
 			currentTurnSpeed = -TURN_SPEED;
-		} else if (Window.input.isKeyLeftPressed()) {
+		} else if (Window.input.isKeyPressed(Keyboard.KEY_A)) {
 			currentTurnSpeed = TURN_SPEED;
 		} else {
 			currentTurnSpeed = 0;
 		}
-		if (Window.input.isKeySpacePressed()) {
+		if (Window.input.isKeyPressed(Keyboard.KEY_SPACE)) {
 			if (!inAir) {
 				upwardsSpeed = JUMP_POWER;
 				inAir = true;

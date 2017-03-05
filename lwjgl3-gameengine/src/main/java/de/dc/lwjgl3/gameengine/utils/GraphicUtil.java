@@ -27,17 +27,9 @@ public final class GraphicUtil {
 		projectionMatrix.elements[0] = scaleX;
 		projectionMatrix.elements[5] = scaleY;
 		projectionMatrix.elements[10] = -((Level.FAR_PLANE + Level.NEAR_PLANE) / frustumLength);
-		;
 		projectionMatrix.elements[11] = -1;
 		projectionMatrix.elements[14] = -((2 * Level.NEAR_PLANE * Level.FAR_PLANE) / frustumLength);
 		projectionMatrix.elements[15] = 0;
-
-		// projectionMatrix.elements[0 + 0 * 4] = scaleX;
-		// projectionMatrix.elements[1 + 1 * 4] = scaleY;
-		// projectionMatrix.elements[2 + 2 * 4] = -((Level.FAR_PLANE + Level.NEAR_PLANE) / frustumLength);
-		// projectionMatrix.elements[0 + 3 * 4] = -1;
-		// projectionMatrix.elements[1 + 3 * 4] = -((2 * Level.NEAR_PLANE * Level.FAR_PLANE) / frustumLength);
-		// projectionMatrix.elements[2 + 3 * 4] = 0;
 		return projectionMatrix;
 	}
 

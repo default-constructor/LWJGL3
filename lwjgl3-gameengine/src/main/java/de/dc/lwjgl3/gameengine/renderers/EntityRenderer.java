@@ -17,7 +17,7 @@ import de.dc.lwjgl3.gameengine.game.gameplay.entities.Entity;
 import de.dc.lwjgl3.gameengine.graphics.Shader;
 import de.dc.lwjgl3.gameengine.utils.GraphicUtil;
 
-public class EntityRenderer {
+public class EntityRenderer extends Renderer {
 
 	private Shader shader;
 
@@ -50,6 +50,9 @@ public class EntityRenderer {
 		glEnableVertexAttribArray(1);
 		glEnableVertexAttribArray(2);
 		ModelTexture textureModel = texturedModel.getTextureModel();
+		if (textureModel.hasTransparency()) {
+			disableCulling();
+		}
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, textureModel.getTextureId());
 	}

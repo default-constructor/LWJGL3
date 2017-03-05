@@ -4,11 +4,26 @@ public class ModelTexture {
 
 	private int textureId;
 
-	public ModelTexture(int textureId) {
+	private boolean transparency;
+
+	public ModelTexture(int textureId, boolean transparency) {
 		this.textureId = textureId;
+		this.transparency = transparency;
+	}
+
+	public ModelTexture(int textureId) {
+		this(textureId, false);
 	}
 
 	public int getTextureId() {
 		return textureId;
+	}
+
+	public boolean hasTransparency() {
+		return transparency;
+	}
+
+	public void setTransparency(boolean transparency) {
+		this.transparency = transparency;
 	}
 }
