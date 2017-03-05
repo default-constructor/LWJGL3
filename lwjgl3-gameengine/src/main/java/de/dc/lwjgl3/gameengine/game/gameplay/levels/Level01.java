@@ -62,6 +62,7 @@ public class Level01 extends Level {
 	public void render() {
 		// System.out.println("Level01::render");
 		levelRenderer.process(terrain);
+		levelRenderer.process(player);
 		for (Entity entity : entities) {
 			levelRenderer.process(entity);
 		}
@@ -70,7 +71,8 @@ public class Level01 extends Level {
 
 	@Override
 	public void update() {
-		// System.out.println("Level01::update");
+//		System.out.println("Level01::update");
+		player.move(terrain);
 		camera.move();
 	}
 
@@ -94,5 +96,6 @@ public class Level01 extends Level {
 		TerrainData data = graphicManager.loadTerrainData("gras", Terrain.SIZE);
 		RawModel rawModel = graphicManager.loadRawModel(data.getVertices(), data.getTextureCoordinates(), data.getNormals(), data.getIndices());
 		terrain = new Terrain(0, -1, rawModel, new ModelTexture(graphicManager.loadTexture("gras")), new ModelTexture(graphicManager.loadTexture("blendmap")));
+		terrain.setHeights(data.getHeights());
 	}
 }

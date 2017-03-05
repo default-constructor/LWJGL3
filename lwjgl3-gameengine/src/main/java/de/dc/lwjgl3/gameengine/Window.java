@@ -5,7 +5,6 @@ import static org.lwjgl.opengl.GL.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-import org.lwjgl.Sys;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 
@@ -109,12 +108,12 @@ public class Window {
 	public static void update() {
 		input.update();
 		long currentFrameTime = getCurrentTime();
-		System.out.println(currentFrameTime);
+		System.out.println("Current frame time: " + currentFrameTime);
 		delta = (currentFrameTime - lastFrameTime) / 1000f;
 		lastFrameTime = currentFrameTime;
 	}
 
 	private static long getCurrentTime() {
-		return (long) (glfwGetTime() * 1000 / glfwGetTimerFrequency());
+		return System.nanoTime() / 1000000L; // (long) (glfwGetTime() * 1000 / glfwGetTimerFrequency());
 	}
 }

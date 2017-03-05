@@ -126,7 +126,7 @@ public class Main implements Runnable {
 			loop(stateMachine.getState().getNextState());
 		}
 
-		stateMachine.getState().update();
 		Window.update();
+		stateMachine.getState().update();
 	}
 }

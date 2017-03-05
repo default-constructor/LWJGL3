@@ -88,4 +88,8 @@ public class Terrain {
 	public float getZ() {
 		return z;
 	}
+
+	public void setHeights(float[][] heights) {
+		this.heights = heights;
+	}
 }

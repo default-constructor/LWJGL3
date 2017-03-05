@@ -6,6 +6,7 @@ import org.lwjgl.glfw.GLFWCursorPosCallback;
 import org.lwjgl.glfw.GLFWKeyCallback;
 import org.lwjgl.glfw.GLFWMouseButtonCallback;
 import org.lwjgl.glfw.GLFWScrollCallback;
+import org.lwjgl.input.Keyboard;
 
 public class Input {
 
@@ -13,11 +14,16 @@ public class Input {
 
 		@Override
 		public void invoke(long window, int key, int scancode, int action, int mods) {
-			if (GLFW_PRESS == action) {
-
-			} else if (GLFW_RELEASE == action) {
-
-			}
+			keysPressed[scancode] = GLFW_PRESS == action;
+			keysRepeated[scancode] = GLFW_REPEAT == action;
+//			keysReleased[scancode] = GLFW_RELEASE == action;
+//			if (GLFW_PRESS == action) {
+//				keysPressed[scancode] = true;
+//				keysReleased[scancode] = false;
+//			} else if (GLFW_RELEASE == action) {
+//				keysReleased[scancode] = true;
+//				keysPressed[scancode] = false;
+//			}
 		}
 	}
 
@@ -64,6 +70,11 @@ public class Input {
 	private static long windowId;
 
 	private GLFWKeyCallback keyListener;
+
+	private boolean[] keysPressed = new boolean[349];
+	private boolean[] keysReleased = new boolean[349];
+	private boolean[] keysRepeated = new boolean[349];
+
 	private GLFWMouseButtonCallback mouseButtonListener;
 	private GLFWCursorPosCallback mouseMotionListener;
 	private GLFWScrollCallback mouseScrollListener;
@@ -80,6 +91,8 @@ public class Input {
 
 	private int mouseWheelX = 0, mouseWheelY = 0;
 	private boolean mouseScrollsUp = false, mouseScrollsDown = false;
+
+	private boolean keyDownPressed;
 
 	public Input(long windowId) {
 		Input.windowId = windowId;
@@ -176,5 +189,25 @@ public class Input {
 
 	public boolean isMouseScrollsDown() {
 		return mouseScrollsDown;
+	}
+
+	public boolean isKeyBackwardPressed() {
+		return keysPressed[Keyboard.KEY_S] || keysRepeated[Keyboard.KEY_S];
+	}
+
+	public boolean isKeyForwardPressed() {
+		return keysPressed[Keyboard.KEY_W] || keysRepeated[Keyboard.KEY_W];
+	}
+
+	public boolean isKeyLeftPressed() {
+		return keysPressed[Keyboard.KEY_A] || keysRepeated[Keyboard.KEY_A];
+	}
+
+	public boolean isKeyRightPressed() {
+		return keysPressed[Keyboard.KEY_D] || keysRepeated[Keyboard.KEY_D];
+	}
+
+	public boolean isKeySpacePressed() {
+		return keysPressed[Keyboard.KEY_SPACE];
 	}
 }

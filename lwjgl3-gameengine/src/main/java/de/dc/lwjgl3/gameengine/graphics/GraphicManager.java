@@ -266,7 +266,7 @@ public class GraphicManager {
 			}
 		}
 
-		return new TerrainData(vertices, textureCoordinates, normals, indices);
+		return new TerrainData(vertices, textureCoordinates, normals, indices, heights);
 	}
 
 	private float getHeight(int x, int z, BufferedImage image) {

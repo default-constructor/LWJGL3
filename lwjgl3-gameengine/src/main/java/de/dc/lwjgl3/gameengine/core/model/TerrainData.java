@@ -8,11 +8,14 @@ public class TerrainData {
 
 	private int[] indices;
 
-	public TerrainData(float[] vertices, float[] textureCoordinates, float[] normals, int[] indices) {
+	private float[][] heights;
+
+	public TerrainData(float[] vertices, float[] textureCoordinates, float[] normals, int[] indices, float[][] heights) {
 		this.vertices = vertices;
 		this.textureCoordinates = textureCoordinates;
 		this.normals = normals;
 		this.indices = indices;
+		this.heights = heights;
 	}
 
 	public float[] getVertices() {
@@ -29,5 +32,9 @@ public class TerrainData {
 
 	public int[] getIndices() {
 		return indices;
+	}
+
+	public float[][] getHeights() {
+		return heights;
 	}
 }
